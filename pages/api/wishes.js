@@ -15,7 +15,7 @@ async function handler(req, res) {
             res.status(422).json({message: "Invalid data"})
             return;
         }
-await executeQuery(`DELETE FROM wishes WHERE titel = '${id}'`)
+await executeQuery(`DELETE FROM wishes WHERE id = '${id}'`)
 res.status(201).json({message: "Data deleted!"})
 return;
     }
@@ -26,7 +26,7 @@ if(req.method === "POST") {
         res.status(422).json({message: "Invalid data"})
         return;
     }
-    const data = await executeQuery(`INSERT INTO wishes(titel) VALUES('${id}')`)
+    const data = await executeQuery(`INSERT INTO wishes(id) VALUES('${id}')`)
     res.status(201).json({message: "Data created!", data})
     return;
 }
