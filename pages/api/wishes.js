@@ -9,6 +9,17 @@ async function handler(req, res) {
         optionsSuccesStatus: 200,
     })
 
+    if(req.method === "PUT") {
+        const {id, købt} = req.body
+        if(!id || !købt){
+            res.status(422).json({message: "Invalid data"})
+            return;
+        }
+await executeQuery(`UPDATE wishes SET købt = '${købt}' WHERE id = '${id}'`)
+res.status(201).json({message: "Data deleted!"})
+return;
+    }
+
     if(req.method === "DELETE") {
         const {id} = req.body
         if(!id){
