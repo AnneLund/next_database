@@ -10,23 +10,23 @@ async function handler(req, res) {
     })
 
     if(req.method === "DELETE") {
-        const {title} = req.body
-        if(!title){
+        const {id} = req.body
+        if(!id){
             res.status(422).json({message: "Invalid data"})
             return;
         }
-await executeQuery(`DELETE FROM wishes WHERE titel = '${title}'`)
+await executeQuery(`DELETE FROM wishes WHERE titel = '${id}'`)
 res.status(201).json({message: "Data deleted!"})
 return;
     }
 
 if(req.method === "POST") {
-    const {title} = req.body
-    if(!title){
+    const {id} = req.body
+    if(!id){
         res.status(422).json({message: "Invalid data"})
         return;
     }
-    const data = await executeQuery(`INSERT INTO wishes(titel) VALUES('${title}')`)
+    const data = await executeQuery(`INSERT INTO wishes(titel) VALUES('${id}')`)
     res.status(201).json({message: "Data created!", data})
     return;
 }
