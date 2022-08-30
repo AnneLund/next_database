@@ -1,6 +1,13 @@
 import executeQuery from "../../Source/db";
+import NextCors from 'nextjs-cors'
 
 async function handler(req, res) {
+
+    await NextCors(req, res, {
+        methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE'],
+        origin: '*',
+        optionsSuccesStatus: 200,
+    })
 
     if(req.method === "DELETE") {
         const {title} = req.body
