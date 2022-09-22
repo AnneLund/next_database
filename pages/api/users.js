@@ -37,7 +37,7 @@ if(req.method === "POST") {
         res.status(422).json({message: "Invalid data"})
         return;
     }
-    const data = await executeQuery(`INSERT INTO users(id) VALUES('${id}')`)
+    const data = await executeQuery(`INSERT INTO users(username, password) VALUES('${id}')`)
     res.status(201).json({message: "Data created!", data})
     return;
 }
