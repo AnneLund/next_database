@@ -46,7 +46,7 @@ if(req.method === "GET") {
 const {username, password} = req.headers
 if (username && password) {
 const data = await executeQuery(`SELECT * FROM users WHERE username = '${username}'`)
-if (password == data.password) {
+if (password === data.password) {
 res.status(201).json({message: "Data fetch", data})
 return;     
 }
