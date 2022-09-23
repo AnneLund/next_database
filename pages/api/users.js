@@ -52,14 +52,12 @@ return;
 }
 else{
     res.status(401).json({message: "Kode og bruger passer ikke sammen!"})
+    return
 }   
 } 
 
 }
 
-else{
-    res.status(500).json({message: "Route not valid"})
-}
 }
 
 export default handler;
