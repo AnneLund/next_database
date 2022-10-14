@@ -42,7 +42,7 @@ if(req.method === "POST") {
     return;
 }
 
-if(req.method === "GET") {
+if(req.method === "POST") {
 const {username, password} = req.headers
 if (username && password) {
 const data = await executeQuery(`SELECT * FROM users WHERE username = '${username}'`)
