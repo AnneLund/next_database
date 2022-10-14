@@ -10,8 +10,9 @@ async function handler(req, res) {
     })
 
     if(req.method === "PUT") {
-        const {id} = req.body
-        if(!id){
+        const {username} = req.body
+        const {password} = req.body
+        if(!username || !password){
             res.status(422).json({message: "Invalid data"})
             return;
         }
