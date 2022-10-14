@@ -10,14 +10,13 @@ async function handler(req, res) {
     })
 
     if(req.method === "PUT") {
-        const {username} = req.body
-        const {password} = req.body
+        const {username, password} = req.body
         if(!username || !password){
             res.status(422).json({message: "Invalid data"})
             return;
         }
-await executeQuery(`UPDATE users SET username = '${username}' WHERE id = '${id}'`)
-res.status(201).json({message: "Data deleted!"})
+await executeQuery(`UPDATE users SET username = '${username}' WHERE id = '${username}'`)
+res.status(201).json({message: "Data updated!"})
 return;
     }
 
