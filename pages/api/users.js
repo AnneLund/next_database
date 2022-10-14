@@ -10,8 +10,8 @@ async function handler(req, res) {
     })
 
     if(req.method === "PUT") {
-        const {id, username} = req.body
-        if(!id || !username){
+        const {id} = req.body
+        if(!id){
             res.status(422).json({message: "Invalid data"})
             return;
         }
@@ -42,22 +42,14 @@ if(req.method === "POST") {
     return;
 }
 
-if(req.method === "POST") {
-const {username, password} = req.headers
-if (username && password) {
-const data = await executeQuery(`SELECT * FROM users WHERE username = '${username}'`)
-if (password === data.password) {
+if(req.method === "GET") {
+const data = await executeQuery(`SELECT * FROM users`)
 res.status(201).json({message: "Data fetch", data})
-return;     
+return;
 }
 else{
-    res.status(401).json({message: "Kode og bruger passer ikke sammen!"})
-    return
-}   
-} 
-
+    res.status(500).json({message: "Route not valid"})
 }
-
 }
 
 export default handler;
