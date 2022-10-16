@@ -32,12 +32,13 @@ return;
     }
 
 if(req.method === "POST") {
-    const {id} = req.body
-    if(!id){
+    const {username, password} = req.body
+    if(!username || !password){
         res.status(422).json({message: "Invalid data"})
         return;
     }
-    const data = await executeQuery(`INSERT INTO users(id) VALUES('${id}')`)
+    const data = await executeQuery(`INSERT INTO users(username, password)VALUES(?,?)`)
+    [username, password]
     res.status(201).json({message: "Data created!", data})
     return;
 }
