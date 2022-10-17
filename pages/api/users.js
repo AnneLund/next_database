@@ -32,21 +32,19 @@ res.status(201).json({message: "Data deleted!"})
 return;
     }
 
-if(req.method === "POST") {
-    const {username} = req.body.username
-    const {password} = req.body.password
+    if(req.method === "POST") {
+        const {username, password} = req.body
 
-    
-    if(!password || !username){
-        res.status(422).json({message: "Invalid data"})
+        if(!username || !password){
+            res.status(422).json({message: "Invalid data"})
+            return;
+        }
+        const data = await executeQuery(`INSERT INTO users(username, password) VALUES('${username}', '${password}')`)
+        res.status(201).json({message: "Data created!", data})
         return;
     }
 
-    const data = await executeQuery(`SELECT * FROM users WHERE username = ? AND password = ?`)
-    [username, password]
-    res.status(201).json({message: "Data created!", data})
 
-}
 
 
 
