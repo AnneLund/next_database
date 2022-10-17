@@ -31,7 +31,7 @@ res.status(201).json({message: "Data deleted!"})
 return;
     }
 
-if(req.method === "POST") {
+if(req.method === "post") {
     const {username} = req.body.username
     const {password} = req.body.password
     if(!username || !password){
