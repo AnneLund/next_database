@@ -31,18 +31,26 @@ res.status(201).json({message: "Data deleted!"})
 return;
     }
 
-if(req.method === "post") {
+if(req.method === "POST") {
     const {username} = req.body.username
     const {password} = req.body.password
-    if(!username || !password){
-        res.status(422).json({message: "Invalid data"})
-        return;
-    }
+
     const data = await executeQuery(`SELECT * FROM users WHERE username = ? AND password = ?`)
     [username, password]
     res.status(201).json({message: "Data created!", data})
-    return;
+
+    if(err){
+        res.status(422).json({err: "Invalid data"})
+        return;
+    }
+
+    if (result.length > 0) {
+        res.status( result);
+        }else({message: "Wrong username/password comination!"});
 }
+
+
+
 
 if(req.method === "GET") {
 const data = await executeQuery(`SELECT * FROM users`)
