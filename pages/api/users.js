@@ -32,7 +32,8 @@ return;
     }
 
 if(req.method === "POST") {
-    const {username, password} = req.body
+    const {username} = req.body.username
+    const {password} = req.body.password
     if(!username || !password){
         res.status(422).json({message: "Invalid data"})
         return;
