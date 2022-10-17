@@ -1,5 +1,6 @@
 import executeQuery from "../../Source/db";
 import NextCors from 'nextjs-cors'
+const cors = require('cors')
 
 async function handler(req, res) {
 
@@ -35,14 +36,16 @@ if(req.method === "POST") {
     const {username} = req.body.username
     const {password} = req.body.password
 
+    
+    if(!password || !username){
+        res.status(422).json({message: "Invalid data"})
+        return;
+    }
+
     const data = await executeQuery(`SELECT * FROM users WHERE username = ? AND password = ?`)
     [username, password]
     res.status(201).json({message: "Data created!", data})
 
-    if(err){
-        res.status(422).json({message: "Invalid data"})
-        return;
-    }
 
     if (result.length > 0) {
         res.status( result);
