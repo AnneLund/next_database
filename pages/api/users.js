@@ -46,10 +46,6 @@ if(req.method === "POST") {
     [username, password]
     res.status(201).json({message: "Data created!", data})
 
-
-    if (result.length > 0) {
-        res.status( result);
-        }else({message: "Wrong username/password comination!"});
 }
 
 
