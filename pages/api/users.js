@@ -15,7 +15,7 @@ async function handler(req, res) {
             res.status(422).json({message: "Invalid data"})
             return;
         }
-await executeQuery(`UPDATE users SET username = '${username}' WHERE id = '${username}'`)
+await executeQuery(`UPDATE users SET username = '${username}' WHERE username = '${username}'`)
 res.status(201).json({message: "Data updated!"})
 return;
     }
