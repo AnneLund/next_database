@@ -40,7 +40,7 @@ if(req.method === "POST") {
     res.status(201).json({message: "Data created!", data})
 
     if(err){
-        res.status(422).json({err: "Invalid data"})
+        res.status(422).json({message: "Invalid data"})
         return;
     }
 
