@@ -46,13 +46,11 @@ return;
     }
 
 
-
-
-
-
 if(req.method === "GET") {
-const data = await executeQuery(`SELECT * FROM users`)
-res.status(201).json({message: "Data fetch", data})
+
+const user = await executeQuery(`SELECT * FROM users`)
+res.status(201).json({message: "Data fetch", user})
+
 return;
 }
 else{
