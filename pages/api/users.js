@@ -39,8 +39,9 @@ return;
             res.status(422).json({message: "Invalid data"})
             return;
         }
-        const data = await executeQuery(`INSERT INTO users(username, password) VALUES('${username}', '${password}')`)
-        res.status(201).json({message: "Data created!", data})
+
+        const user = await executeQuery(`INSERT INTO users(username, password) VALUES('${username}', '${password}')`)
+        res.status(201).json({message: "Data created!", user})
         return;
     }
 
