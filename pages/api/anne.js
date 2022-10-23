@@ -7,6 +7,7 @@ async function handler(req, res) {
         methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE'],
         origin: '*',
         optionsSuccesStatus: 200,
+        'Access-Control-Allow-Origin' : '*'
     })
 
     if(req.method === "PUT") {
