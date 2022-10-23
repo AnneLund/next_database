@@ -35,10 +35,10 @@ return;
     if(req.method === "POST") {
         const {titel, image, url, id, købt} = req.body
 
-        if(!username || !password){
-            res.status(422).json({message: "Invalid data"})
-            return;
-        }
+        // if(!username || !password){
+        //     res.status(422).json({message: "Invalid data"})
+        //     return;
+        // }
 
         const data = await executeQuery(`INSERT INTO anne(titel, image, url, id, købt) VALUES('${titel}', '${image}', '${url}', '${id}', '${købt}')`)
         res.status(201).json({message: "Data created!", data})
