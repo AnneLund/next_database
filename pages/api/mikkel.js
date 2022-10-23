@@ -32,14 +32,14 @@ return;
     }
 
     if(req.method === "POST") {
-        const {titel, image, url, id, købt} = req.body
+        const {titel, image, url, købt} = req.body
 
         // if(!username || !password){
         //     res.status(422).json({message: "Invalid data"})
         //     return;
         // }
 
-        const data = await executeQuery(`INSERT INTO mikkel(titel, image, url, id, købt) VALUES('${titel}', '${image}', '${url}', '${id}', '${købt}')`)
+        const data = await executeQuery(`INSERT INTO mikkel(titel, image, url, købt) VALUES('${titel}', '${image}', '${url}', '${købt}')`)
         res.status(201).json({message: "Data created!", data})
         return;
     }
