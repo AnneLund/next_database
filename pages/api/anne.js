@@ -6,8 +6,7 @@ async function handler(req, res) {
     await NextCors(req, res, {
         methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE'],
         origin: '*',
-        optionsSuccesStatus: 200,
-        'Access-Control-Allow-Origin' : '*'
+        optionsSuccesStatus: 200
     })
 
     if(req.method === "PUT") {
