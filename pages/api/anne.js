@@ -39,8 +39,8 @@ return;
             return;
         }
 
-        const wish = await executeQuery(`INSERT INTO anne(titel, image, url, id, købt) VALUES('${titel}', '${image}', '${url}', '${id}', '${købt}')`)
-        res.status(201).json({message: "Data created!", wish})
+        const data = await executeQuery(`INSERT INTO anne(titel, image, url, id, købt) VALUES('${titel}', '${image}', '${url}', '${id}', '${købt}')`)
+        res.status(201).json({message: "Data created!", data})
         return;
     }
 
