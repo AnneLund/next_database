@@ -39,7 +39,7 @@ return;
         //     return;
         // }
 
-        const data = await executeQuery(`INSERT INTO anne(titel, image, url, købt) VALUES('${titel}', '${description}', '${image}', '${url}', '${købt}')`)
+        const data = await executeQuery(`INSERT INTO anne(titel, description, image, url, købt) VALUES('${titel}', '${description}', '${image}', '${url}', '${købt}')`)
         res.status(201).json({message: "Data created!", data})
         return;
     }
