@@ -31,16 +31,19 @@ res.status(201).json({message: "Data deleted!"})
 return;
     }
 
-if(req.method === "POST") {
-    const {id} = req.body
-    if(!id){
-        res.status(422).json({message: "Invalid data"})
+
+    if(req.method === "POST") {
+        const {titel, description, image, url, købt} = req.body
+
+        // if(!username || !password){
+        //     res.status(422).json({message: "Invalid data"})
+        //     return;
+        // }
+
+        const data = await executeQuery(`INSERT INTO wishes2(titel, description, image, url, købt) VALUES('${titel}', '${description}', '${image}', '${url}', '${købt}')`)
+        res.status(201).json({message: "Data created!", data})
         return;
     }
-    const data = await executeQuery(`INSERT INTO wishes2(id) VALUES('${id}')`)
-    res.status(201).json({message: "Data created!", data})
-    return;
-}
 
 if(req.method === "GET") {
 const data = await executeQuery(`SELECT * FROM wishes2`)
