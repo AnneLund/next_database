@@ -20,7 +20,7 @@ res.status(201).json({message: "Data deleted!"})
 return;
     }
 
-    if(req.method === "REMOVE") {
+    if(req.method === "DELETE") {
         const {id} = req.body
         if(!id){
             res.status(422).json({message: "Invalid data"})
