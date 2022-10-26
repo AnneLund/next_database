@@ -15,7 +15,7 @@ async function handler(req, res) {
             res.status(422).json({message: "Invalid data"})
             return;
         }
-await executeQuery(`UPDATE anne SET titel = '${titel}', image = '${image}', url = '${url}', købt = '${købt}', description = '${description}' WHERE id = '${id}'`)
+await executeQuery(`UPDATE anne SET titel = '${titel}', description = '${description}', image = '${image}', url = '${url}', købt = '${købt}',  WHERE id = '${id}'`)
 res.status(201).json({message: "Data deleted!"})
 return;
     }
