@@ -24,9 +24,9 @@ async function handler(req, res) {
                 }  
 
           else if (titel && description && url && image && købt && id && købt) {
-await executeQuery(`UPDATE anne SET titel = '${titel}', image = '${image}', url = '${url}', description = '${description}', købt = '${købt}' WHERE id = '${id}'`)
-res.status(201).json({message: "Data updated!"})
-return;
+        await executeQuery(`UPDATE anne SET titel = '${titel}', image = '${image}', url = '${url}', description = '${description}' WHERE id = '${id}'`)
+        res.status(201).json({message: "Data updated!"})
+        return;
         }          
         }
 
