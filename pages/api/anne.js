@@ -11,7 +11,7 @@ async function handler(req, res) {
 
     if(req.method === "PUT") {
         const {titel, image, id, url, description, købt} = req.body
-        if(!id || !købt){
+        if(!id){
             res.status(422).json({message: "Invalid data"})
             return;
         }
