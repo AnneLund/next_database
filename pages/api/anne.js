@@ -11,10 +11,7 @@ async function handler(req, res) {
 
     if(req.method === "PUT") {
         const {titel, image, id, url, description, købt} = req.body
-        if(!id){
-            res.status(422).json({message: "Invalid id!"})
-            return;
-        }
+
 
         if(købt && id && !titel && !description && !url && !image) {
             await executeQuery(`UPDATE anne SET købt = '${købt}' WHERE id = '${id}'`)
