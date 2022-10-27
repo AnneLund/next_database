@@ -10,13 +10,13 @@ async function handler(req, res) {
     })
 
     if(req.method === "PUT") {
-        const {id, titel, image, url, description, købt} = req.body
+        const {titel, image, id, url, description, købt} = req.body
         if(!id || !købt){
             res.status(422).json({message: "Invalid data"})
             return;
         }
-await executeQuery(`UPDATE anne SET titel = '${titel}', image = '${image}', url = '${url}', description = '${description}', købt = '${købt}' WHERE id = '${id}'`)
-res.status(201).json({message: "Data deleted!"})
+await executeQuery(`UPDATE anne SET(titel, description, image, url, købt) VALUES('${titel}', '${description}', '${image}', '${url}', '${købt}') WHERE id='${id}'`)
+res.status(201).json({message: "Data updated!"})
 return;
     }
 
