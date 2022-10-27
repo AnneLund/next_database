@@ -22,7 +22,8 @@ async function handler(req, res) {
             res.status(201).json({message: "'Købt' opdateret!"})
             return;
                 }  
-          else if (titel && description && url && image && købt) {
+
+          else if (titel && description && url && image && købt && id && købt) {
 await executeQuery(`UPDATE anne SET titel = '${titel}', image = '${image}', url = '${url}', description = '${description}', købt = '${købt}' WHERE id = '${id}'`)
 res.status(201).json({message: "Data updated!"})
 return;
