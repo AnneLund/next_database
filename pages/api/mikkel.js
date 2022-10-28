@@ -18,13 +18,13 @@ async function handler(req, res) {
         }
 
         if(købt && id && !titel && !description && !url && !image) {
-            await executeQuery(`UPDATE anne SET købt = '${købt}' WHERE id = '${id}'`)
+            await executeQuery(`UPDATE mikkel SET købt = '${købt}' WHERE id = '${id}'`)
             res.status(201).json({message: "'Købt' opdateret!"})
             return;
                 }  
 
-          else if (titel && description && url && image && id) {
-       await executeQuery(`UPDATE anne SET titel = '${titel}', image = '${image}', url = '${url}', description = '${description}' WHERE id = '${id}'`)
+          else if (titel || description || url || image || id) {
+       await executeQuery(`UPDATE mikkel SET titel = '${titel}', image = '${image}', url = '${url}', description = '${description}' WHERE id = '${id}'`)
         res.status(201).json({message: "Data updated!"})
         return;
         }          
