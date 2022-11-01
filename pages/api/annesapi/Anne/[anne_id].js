@@ -14,8 +14,8 @@ if(req.method === "GET") {
     query: { anne_id },
   } = req;
 
-  const {id} = req.body
-  console.log(req.body)
+  const {id} = req;
+  console.log(anne_id)
 
   if(anne_id === id) {
    const data = await executeQuery(`SELECT * FROM anne WHERE id = '${id}'`)
