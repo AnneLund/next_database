@@ -2,8 +2,7 @@ import executeQuery from "../../../../Source/db";
 import NextCors from 'nextjs-cors'
 
 module.exports = (req, res) => {
-  async function handler(req, res){
-   await NextCors(req, res, {
+   NextCors(req, res, {
     methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE'],
     origin: '*',
     optionsSuccesStatus: 200,
@@ -18,7 +17,7 @@ if(req.method === "GET") {
   console.log(anne_id)
 
   if(anne_id === id) {
-   const data = await executeQuery(`SELECT * FROM anne WHERE id = '${id}'`)
+   const data = executeQuery(`SELECT * FROM anne WHERE id = '${id}'`)
     res.status(201).json({message: "'Købt' opdateret!"}, data)
     return;
         } 
@@ -39,7 +38,7 @@ if(req.method === "GET") {
     // res.send({
     //     msg: `Hello ${anne_id}!`
     // });
-};
+
 
 
 // import executeQuery from "../../../../Source/db";
