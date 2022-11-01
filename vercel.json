@@ -1,20 +1,6 @@
 {
     "routes":[
-        {
-            "src": "/",
-            "dest": "/api/Anne/anne.js"
-        },
-        {
-            "src": "/api/anne",
-            "methods": [
-                "POST",
-                "GET",
-                "PUT",
-                "DELETE"
-            ],
-            "dest": "/api/anne.js"
-        },
- {
+            {
             "src": "/anne/:anne_id",
             "dest": "/api/Anne/:anne_id"
         }
