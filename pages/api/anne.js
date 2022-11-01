@@ -68,8 +68,8 @@ return;
     }
 
 if(req.method === "GET") {
-const data = await executeQuery(`SELECT * FROM anne`)
-res.status(201).json({message: "Data fetch", data})
+await executeQuery(`SELECT * FROM anne`)
+res.status(201).json({message: "Data fetch"})
 return;
 }
 else{
