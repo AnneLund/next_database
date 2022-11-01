@@ -10,16 +10,16 @@ await NextCors(req, res, {
 
 
       if(req.method === "GET") {
-        const {id} = req.body
+        const {id, titel} = req.body
 
-        const {
-          query: { user_id },
-        } = req;
+        // const {
+        //   query: { data },
+        // } = req;
 
         const data = await executeQuery(`SELECT * FROM anne WHERE id = '${id}'`)
-        res.status(201).json({message: "Data fetch"})
+        res.status(201).json({message: "Data fetch", data})
         res.send({
-          data
+          titel
       });  
         return;
         }
