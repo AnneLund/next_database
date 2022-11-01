@@ -6,9 +6,6 @@ await NextCors(req, res, {
     methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE'],
     origin: '*',
     optionsSuccesStatus: 200,
-
-
-    
 })
 
  const {
@@ -16,7 +13,7 @@ await NextCors(req, res, {
       } = req;
 
       if(req.method === "GET") {
-        const data = await executeQuery(`SELECT * FROM anne`)
+        const data = await executeQuery(`SELECT * FROM anne WHERE id='${anne_id}'`)
         res.status(201).json({message: "Data fetch", data})
         return;
         }
