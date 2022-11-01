@@ -1,33 +1,44 @@
-import executeQuery from "../../../../Source/db";
-import NextCors from 'nextjs-cors'
+module.exports = (req, res) => {
+  const {
+      query: { anne_id },
+    } = req;
+  
+    res.send({
+        msg: `Hello ${anne_id}!`
+    });
+};
 
-async function handler (req, res) {
-await NextCors(req, res, {
-    methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE'],
-    origin: '*',
-    optionsSuccesStatus: 200,
-})
+
+// import executeQuery from "../../../../Source/db";
+// import NextCors from 'nextjs-cors'
+
+// async function handler (req, res) {
+// await NextCors(req, res, {
+//     methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE'],
+//     origin: '*',
+//     optionsSuccesStatus: 200,
+// })
 
 
-      if(req.method === "GET") {
-        const {id, title} = req.body
+//       if(req.method === "GET") {
+//         const {id, title} = req.body
 
-        const {
-          query: { anne_id },
-        } = req;
+//         const {
+//           query: { anne_id },
+//         } = req;
 
-        const data = await executeQuery(`SELECT '${title}' FROM anne WHERE id = '${id}'`)
-        res.status(201).json({data})
-        res.send({msg: `Hello ${anne_id}`});  
-        return;
-        }
-        else{
-            res.status(500).json({message: "Route not valid"})
-        }
+//         const data = await executeQuery(`SELECT '${title}' FROM anne WHERE id = '${id}'`)
+//         res.status(201).json({data})
+//         res.send({msg: `Hello ${anne_id}`});  
+//         return;
+//         }
+//         else{
+//             res.status(500).json({message: "Route not valid"})
+//         }
     
       
 
-}
-export default handler;    
+// }
+// export default handler;    
 
   
