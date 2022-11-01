@@ -2,7 +2,7 @@
     "routes":[
         {
             "src": "/",
-            "dest": "/api/anne.js"
+            "dest": "/api/Anne/anne.js"
         },
         {
             "src": "/api/anne",
@@ -18,7 +18,7 @@
     "rewrites": [
         {
             "src": "/anne/:anne_id",
-            "dest": "/api/anne/:anne_id"
+            "dest": "/api/Anne/:anne_id"
         }
     ]
 
