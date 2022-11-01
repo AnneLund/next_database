@@ -1,22 +1,8 @@
 {
-    "routes":[
+    "rewrites": [
         {
-            "src": "/",
-            "dest": "/api/annesapi/anne.js"
-        },
-        {
-            "src": "/anne",
-            "methods": [
-                "POST",
-                "GET",
-                "PUT",
-                "DELETE"
-            ],
-            "dest": "/api/annesapi/anne.js"
-        },
-        {
-            "src": "/anne/:anne_id",
-            "dest": "/api/annesapi/Anne/:anne_id.js"
+            "source": "/anne/:anne_id",
+            "destination": "/api/annesapi/Anne/:anne_id"
         }
     ]
 }
