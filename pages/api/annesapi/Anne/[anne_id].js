@@ -12,11 +12,20 @@ module.exports = (req, res) => {
 if(req.method === "GET") {
   const {
     query: { anne_id },
+    titel,
+    id
   } = req;
-  const data = await executeQuery(`SELECT * FROM anne`)
 
-  res.status(201).json({data, anne_id})
-  return;
+  if(anne_id === id) {
+    await executeQuery(`SELECT * FROM anne WHERE id = '${id}'`)
+    res.status(201).json({message: "'Købt' opdateret!"}, titel)
+    return;
+        } 
+
+
+  // const data = await executeQuery(`SELECT * FROM anne WHERE id='${id}'`)
+  // res.status(201).json({message: "Data fetch", data})
+  // return;
   }
   else{
       res.status(500).json({message: "Route not valid"})
