@@ -1,4 +1,4 @@
-import executeQuery from "../../../Source/db";
+import executeQuery from "../../../../Source/db";
 import NextCors from 'nextjs-cors'
 
 module.exports = (req, res) => {
