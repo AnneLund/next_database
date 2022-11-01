@@ -15,8 +15,8 @@
             "dest": "/api/anne.js"
         },
       {
-            "src": "/anne/:anne_id",
-            "dest": "/api/Anne/:anne_id"
+            "src": "/anne/:id",
+            "dest": "/api/Anne/:id"
         }  
       
     ]
