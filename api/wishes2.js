@@ -1,4 +1,4 @@
-import executeQuery from "../../Source/db";
+import executeQuery from "../Source/db";
 import NextCors from 'nextjs-cors'
 
 async function handler(req, res) {
@@ -18,13 +18,13 @@ async function handler(req, res) {
         }
 
         if(købt && id && !titel && !description && !url && !image) {
-            await executeQuery(`UPDATE mikkel SET købt = '${købt}' WHERE id = '${id}'`)
+            await executeQuery(`UPDATE wishes2 SET købt = '${købt}' WHERE id = '${id}'`)
             res.status(201).json({message: "'Købt' opdateret!"})
             return;
                 }  
 
           else if (titel && description && url && image && id) {
-       await executeQuery(`UPDATE mikkel SET titel = '${titel}', image = '${image}', url = '${url}', description = '${description}' WHERE id = '${id}'`)
+       await executeQuery(`UPDATE wishes2 SET titel = '${titel}', image = '${image}', url = '${url}', description = '${description}' WHERE id = '${id}'`)
         res.status(201).json({message: "Data updated!"})
         return;
         }          
@@ -36,10 +36,11 @@ async function handler(req, res) {
             res.status(422).json({message: "Invalid data"})
             return;
         }
-await executeQuery(`DELETE FROM mikkel WHERE id = '${id}'`)
+await executeQuery(`DELETE FROM wishes2 WHERE id = '${id}'`)
 res.status(201).json({message: "Data deleted!"})
 return;
     }
+
 
     if(req.method === "POST") {
         const {titel, description, image, url, købt} = req.body
@@ -49,13 +50,13 @@ return;
         //     return;
         // }
 
-        const data = await executeQuery(`INSERT INTO mikkel(titel, description, image, url, købt) VALUES('${titel}', '${description}', '${image}', '${url}', '${købt}')`)
+        const data = await executeQuery(`INSERT INTO wishes2(titel, description, image, url, købt) VALUES('${titel}', '${description}', '${image}', '${url}', '${købt}')`)
         res.status(201).json({message: "Data created!", data})
         return;
     }
 
 if(req.method === "GET") {
-const data = await executeQuery(`SELECT * FROM mikkel`)
+const data = await executeQuery(`SELECT * FROM wishes2`)
 res.status(201).json({message: "Data fetch", data})
 return;
 }

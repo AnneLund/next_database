@@ -1,9 +1,9 @@
 module.exports = (req, res) => {
     const {
-        query: { user_id },
+        query: { anne_id },
       } = req;
     
       res.send({
-          msg: `Hello ${user_id}!`
+          msg: `Hello ${anne_id}!`
       });
   };
