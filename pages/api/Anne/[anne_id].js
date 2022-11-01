@@ -8,9 +8,9 @@ await NextCors(req, res, {
     optionsSuccesStatus: 200,
 })
 
- const {
-        data: { id, titel, image, description, url },
-      } = req;
+const {
+  query: { anne_id },
+} = req;
 
       if(req.method === "GET") {
         const data = await executeQuery(`SELECT * FROM anne WHERE id='${id}'`)
@@ -22,7 +22,7 @@ await NextCors(req, res, {
         }
     
       res.send({
-          msg: `Hello ${anne_id}!`
+          data
       });    
 
 }
