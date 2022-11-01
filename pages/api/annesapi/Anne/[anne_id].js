@@ -14,11 +14,11 @@ if(req.method === "GET") {
     query: { anne_id },
   } = req;
 
-  const {id, titel} = req.body
+  const {id} = req.body
 
   if(anne_id === id) {
-    await executeQuery(`SELECT * FROM anne WHERE id = '${id}'`)
-    res.status(201).json({message: "'Købt' opdateret!"}, titel)
+   const data = await executeQuery(`SELECT * FROM anne WHERE id = '${id}'`)
+    res.status(201).json({message: "'Købt' opdateret!"}, data)
     return;
         } 
 
