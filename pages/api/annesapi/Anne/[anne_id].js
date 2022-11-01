@@ -10,8 +10,12 @@ module.exports = (req, res) => {
 })   
 
 if(req.method === "GET") {
+  const {
+    query: { anne_id },
+  } = req;
   const data = await executeQuery(`SELECT * FROM anne`)
-  res.status(201).json({message: "Data fetch", data})
+
+  res.status(201).json({data, anne_id})
   return;
   }
   else{
@@ -20,13 +24,11 @@ if(req.method === "GET") {
 
   }
 
-  const {
-      query: { anne_id },
-    } = req;
+
   
-    res.send({
-        msg: `Hello ${anne_id}!`
-    });
+    // res.send({
+    //     msg: `Hello ${anne_id}!`
+    // });
 };
 
 
