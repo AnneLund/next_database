@@ -2,7 +2,7 @@
     "rewrites": [
         {
             "source": "/anne/:anne_id",
-            "destination": "/api/annesapi/Anne/:anne_id"
+            "destination": "/api/annesapi/anne/:anne_id"
         }
     ]
 }
