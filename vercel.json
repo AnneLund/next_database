@@ -5,7 +5,7 @@
             "dest": "/api/Anne/anne.js"
         },
         {
-            "src": "/anne",
+            "src": "api/anne",
             "methods": [
                 "POST",
                 "GET",
@@ -14,9 +14,13 @@
             ],
             "dest": "/api/Anne/anne.js"
         },
-        {
+      {
             "src": "/anne/:anne_id",
             "dest": "/api/Anne/:anne_id"
-        }
+        }  
+      
     ]
+
+        
+   
 }
