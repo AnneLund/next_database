@@ -1,4 +1,4 @@
-import executeQuery from "../../Source/db";
+import executeQuery from "../../../Source/db";
 import NextCors from 'nextjs-cors'
 
 async function handler(req, res) {
