@@ -1,4 +1,4 @@
-import executeQuery from "../../Source/db";
+import executeQuery from "../../../Source/db";
 import NextCors from 'nextjs-cors'
 
 async function handler(req, res) {
@@ -68,8 +68,8 @@ return;
     }
 
 if(req.method === "GET") {
-await executeQuery(`SELECT * FROM anne`)
-res.status(201).json({message: "Data fetch"})
+const {titel} = await executeQuery(`SELECT * FROM anne`)
+res.status(201).json({message: "Data fetch", titel})
 return;
 }
 else{
