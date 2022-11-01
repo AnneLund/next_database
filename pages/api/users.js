@@ -1,6 +1,5 @@
 import executeQuery from "../../Source/db";
 import NextCors from 'nextjs-cors'
-const cors = require('cors')
 
 async function handler(req, res) {
 
