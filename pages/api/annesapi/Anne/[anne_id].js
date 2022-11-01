@@ -12,9 +12,9 @@ module.exports = (req, res) => {
 if(req.method === "GET") {
   const {
     query: { anne_id },
-    titel,
-    id
   } = req;
+
+  const {id, titel} = req.body
 
   if(anne_id === id) {
     await executeQuery(`SELECT * FROM anne WHERE id = '${id}'`)
