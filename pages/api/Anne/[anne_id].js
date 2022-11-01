@@ -18,7 +18,7 @@ await NextCors(req, res, {
 
         await executeQuery(`SELECT * FROM anne WHERE id = '${id}'`)
         res.status(201).json()  
-        return;
+        return id;
         }
         else{
             res.status(500).json({message: "Route not valid"})
