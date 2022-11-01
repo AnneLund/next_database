@@ -10,18 +10,24 @@ await NextCors(req, res, {
 
 
       if(req.method === "GET") {
-        const {id, titel} = req.body
-        const data = await executeQuery(`SELECT '${titel}' FROM anne WHERE id = '${id}'`)
-        res.status(201).json({message: "Data fetch", data})
+        const {id} = req.body
+
+        const {
+          query: { user_id },
+        } = req;
+
+        const data = await executeQuery(`SELECT * FROM anne WHERE id = '${id}'`)
+        res.status(201).json({message: "Data fetch"})
+        res.send({
+          data
+      });  
         return;
         }
         else{
             res.status(500).json({message: "Route not valid"})
         }
     
-      res.send({
-          data
-      });    
+      
 
 }
 export default handler;    
