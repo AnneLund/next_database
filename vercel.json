@@ -13,15 +13,11 @@
                 "DELETE"
             ],
             "dest": "/api/anne.js"
-        }
-    ],
-    "rewrites": [
-        {
+        },
+ {
             "src": "/anne/:anne_id",
             "dest": "/api/Anne/:anne_id"
         }
-    ]
 
-        
-   
+    ]
 }
