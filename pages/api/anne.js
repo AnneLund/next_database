@@ -68,8 +68,7 @@ return;
     }
 
 if(req.method === "GET") {
-    const {id, titel, description, image, url, købt} = req.body
-const data = await executeQuery(`SELECT * FROM anne WHERE id = '${id}'`)
+const data = await executeQuery(`SELECT * FROM anne`)
 res.status(201).json({message: "Data fetch", data})
 return;
 }
