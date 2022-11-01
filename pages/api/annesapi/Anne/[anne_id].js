@@ -13,9 +13,7 @@ if(req.method === "GET") {
     query: { anne_id },
   } = req;
 
-  const {
-    query: {id}
-  } = req;
+  const {id} = req;
   console.log(anne_id)
 
   if(anne_id === id) {
