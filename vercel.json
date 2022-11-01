@@ -2,7 +2,7 @@
     "routes":[
         {
             "src": "/",
-            "dest": "/api/Anne/anne.js"
+            "dest": "/annesapi/anne.js"
         },
         {
             "src": "/anne",
@@ -12,11 +12,11 @@
                 "PUT",
                 "DELETE"
             ],
-            "dest": "/api/Anne/anne.js"
+            "dest": "/annesapi/anne.js"
         },
         {
             "src": "/anne/:anne_id",
-            "dest": "/api/Anne/:anne_id"
+            "dest": "/annesapi/Anne/:anne_id"
         }
     ]
 }
